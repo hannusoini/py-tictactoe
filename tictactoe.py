@@ -28,15 +28,27 @@ def displayGrid(Grid):
 def MakeSelection():
     Choice=input("Choose a grid position 1-9?")
     print("You chose ",Choice)
+    NewGrid=ModifyGrid('X',Choice,Grid)
+    return NewGrid
 
-def ModifyGrid(Choice):
-
+def ModifyGrid(Player,Choice,Grid):
+    cnt=0
+    for i in range(3):
+        for j in range(3):
+            if cnt==Choice:
+                Grid[i][j]=Player
+            cnt=cnt+1
+    return Grid
 
 WelcomeMsg = "Welcome to Noughts and Crosses"
 
 print(WelcomeMsg)
-InitialGrid=initGrid()
-displayGrid(InitialGrid)
-MakeSelection()
+Grid=initGrid()
+GameOver=False
+while GameOver==False:
+    displayGrid(Grid)
+    Grid=MakeSelection()
+
+
 
 # main()
