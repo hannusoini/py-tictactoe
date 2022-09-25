@@ -1,0 +1,31 @@
+GITHUB general idea
+Basic main/master branch development logic is: You work only on another branches, so you use main/master branch only to merge with another branch which is ready for merging.
+
+GITHUB Make a new branch
+
+$ cd /var/www
+$ git clone git@bitbucket.org:user_name/repository_name.git
+
+Create a new branch. It will contain the latest files of your master branch repository
+$ git branch new_branch
+Change your current git branch to the new_branch
+$ git checkout new_branch
+Do coding, commits, as usual
+$ git add .
+$ git commit -m “Initial commit”
+$ git push # pushes commits only to “new_branch”
+
+$ git merge master
+$ git checkout master # goes to master branch
+$ git merge development # merges files in localhost. Master shouldn’t have any  commits ahead, otherwise there will be a need for pull and merging code by hands!
+$ git push # pushes all “new_branch” commits to both branches - “master” and “new_branch”
+
+GITHUB Merge
+
+git fetch origin master (The first line makes sure he has any upstream commits that have been made to master since the last time updated his local repository.)
+(on branch development)$ git merge master  (pulls master into development)
+(resolve any merge conflicts if there are any)
+git checkout master
+git merge --no-ff development (there won't be any conflicts now)
+
+If you want to keep track of who did the merge and when, you can use --no-ff flag while merging to do so.

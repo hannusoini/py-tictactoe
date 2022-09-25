@@ -10,7 +10,7 @@ def initGrid(): # finish grid initialisation
     #Grid = [[' ', ' ', ' '],[' ', ' ', ' '],[' ', ' ', ' ']]
     return Grid
 
-def main(Grid):  # 
+def main(Grid):  #
     displayGrid(Grid)
     while True:
         Grid=MakeSelection(Grid)
